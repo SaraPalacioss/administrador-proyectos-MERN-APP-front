@@ -23,7 +23,7 @@ const ListadoTareas = () => {
                             tarea={tarea}
                         />
                     ))
-                };
+                }
             </ul> 
 
             <button

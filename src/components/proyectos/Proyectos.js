@@ -13,7 +13,6 @@ const Proyectos = () => {
                 <Barra/>
                 <main>
                     <FormTarea/>
-
                     <div className="contenedor-tareas">
                         <ListadoTareas/>
                     </div>
