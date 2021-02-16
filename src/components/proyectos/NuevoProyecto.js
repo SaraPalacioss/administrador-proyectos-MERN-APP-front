@@ -7,15 +7,28 @@ const NuevoProyecto = () => {
         nombre: ''
     });
 
+    //extraer nombre de proyecto
+    const {nombre} = proyecto;
+
+    //lee los contenidos del input
     const onChangeProyecto = e => {
         guardarProyecto({
             ...proyecto,
             [e.target.name] : e.target.value
         })
+    };
+
+    //cuando el usuario envía un proyecto
+    const onSubmitProyecto = e => {
+        e.preventDefault();
+
+        //validar el proyecto
+
+        //agregar al state
+
+        //reiniciar el form
     }
 
-    //extraer nombre de proyecto
-    const {nombre} = proyecto;
 
     return ( 
         <Fragment>
@@ -27,6 +40,7 @@ const NuevoProyecto = () => {
             </button>
             <form
                 className="formulario-nuevo-proyecto"
+                onSubmit={onSubmitProyecto}
             >
                 <input
                     type="text"
