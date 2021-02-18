@@ -12,7 +12,6 @@ const ListadoTareas = () => {
     //si no hay proyecto seleccionado
     if(!proyecto) return <h2>Selecciona un proyecto</h2>
 
-
     //array destructuring para extraer el proyecto actual
     const [proyectoActual] = proyecto;
 
