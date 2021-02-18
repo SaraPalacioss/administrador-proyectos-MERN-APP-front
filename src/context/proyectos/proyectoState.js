@@ -2,7 +2,7 @@ import React, {useReducer} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import proyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
-import {FORMULARIO_PROYECTO, OBTENER_PROYECTOS, AGREGAR_PROYECTOS, VALIDAR_FORMULARIO}from '../../types';
+import {FORMULARIO_PROYECTO, OBTENER_PROYECTOS, AGREGAR_PROYECTOS, VALIDAR_FORMULARIO, PROYECTO_ACTUAL}from '../../types';
 
 
 const ProyectoState = props => {
@@ -17,7 +17,8 @@ const ProyectoState = props => {
     const initialState = {
         proyectos: [],
         formulario: false,
-        errorFormulario: false
+        errorFormulario: false,
+        proyecto: null
     };
 
     //dispach para ejecutar las acciones
@@ -56,16 +57,26 @@ const ProyectoState = props => {
         })
     }
 
+    //Selecciona el proyecto que el usuario hizo clic
+    const proyectoActual = proyectoId => {
+        dispach({
+            type: PROYECTO_ACTUAL,
+            payload: proyectoId
+        })
+    }
+
     return(
         <proyectoContext.Provider
             value={{
                 proyectos: state.proyectos,
                 formulario: state.formulario,
                 errorFormulario: state.errorFormulario,
+                proyecto: state.proyecto,
                 mostrarFormulario,
                 obtenerProyectos,
                 agregarProyecto,
-                mostrarError
+                mostrarError,
+                proyectoActual
             }}
         >
             {props.children}
