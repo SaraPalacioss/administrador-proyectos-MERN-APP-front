@@ -1,6 +1,10 @@
 import React, {useReducer} from 'react';
 import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
+import 
+    {
+        TAREAS_PROYECTO
+    } from '../../types';
 
 const TareaState = props => {
     const initialState = {
@@ -19,14 +23,24 @@ const TareaState = props => {
             {nombre: "Elegir hosting", estado: true, proyectoId: 4},
         ]
     }
-
     //Crear dispach y state
     const [state, dispach] = useReducer(TareaReducer, initialState);
+
+    //Crear las funciones
+
+    //Obtener las tareas de un proyecto
+    const obtenerTareas = proyectoId => {
+        dispach({
+            type: TAREAS_PROYECTO,
+            payload: proyectoId
+        })
+    }
 
     return (
         <TareaContext.Provider
             value={{
-                tareas: state.tareas
+                tareas: state.tareas,
+                obtenerTareas
             }}
         >
             {props.children}
