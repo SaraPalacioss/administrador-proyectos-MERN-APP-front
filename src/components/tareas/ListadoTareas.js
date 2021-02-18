@@ -15,12 +15,7 @@ const ListadoTareas = () => {
     //array destructuring para extraer el proyecto actual
     const [proyectoActual] = proyecto;
 
-    const tareasProyecto = [
-        {nombre: "Elegir plataforma", estado: true},
-        {nombre: "Elegir colores", estado: true},
-        {nombre: "Elegir pasarela de pago", estado: false},
-        {nombre: "Elegir hosting", estado: true},
-    ];
+    const tareasProyecto = []
 
     return (  
         <Fragment>
